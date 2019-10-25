@@ -1,0 +1,27 @@
+
+sudo docker build -f Dockerfile.dev .
+sudo docker run -v /app/node_modules -v $(pwd):/app  -p 3000:3000  eb6a9a434b09
+
+(docker-compose.yml)
+docker-compose up
+
+
+sudo docker-compose up -d
+sudo docker-compose down
+
+
+sudo docker build -f Dockerfile.dev .
+sudo docker run -it 9896e21ab501 npm run test     (substituindo o comando default q será executado)
+
+
+sudo docker-compose up
+sudo docker ps -a   (descobrindo o id)
+sudo docker exec -it 4d980c98f6e6 npm run test   (executar o teste no container em execucao)
+
+
+
+
+
+
+
+
