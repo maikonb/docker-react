@@ -25,3 +25,22 @@ sudo docker build -t test_container  -f Dockerfile.dev .
 sudo docker run -e CI=true test_container:latest npm run test
 // Se 0, tudo ok. Se != 0, um erro ocorreu.
 echo $?
+
+
+Github Setup: Criacao De um repositorio publico
+Travis CI Setup: Registro no Travis
+Travis YML File Configuration: Criacao do YML .travis
+Automatic Build Creation: dar um push no master e monitorar o travis
+AWS Elastic Beanstalk: Criar um novo ambiente (sample application)
+Travis Config for Deployment: adicionar a seção 'deploy' no .travis.yml (o bucket_name pode-se obter no S3)
+Travis Script Fix for access_key_id: Entrar no aws iam e criar um novo usuario de acesso programatico
+Automated Deployments: No travis, criar duas variaveix de ambiente: AWS_ACCESS_KEY e AWS_SECRET_KEY com as credenciais. No .travis.yml, informar a utilizacao dessas variaveis.
+Exposing Ports (Dockerfile): no Dockerfile adicionar: 'EXPOSE 80', senão ocorre um erro no beanstalk
+Full Workflow With Github
+    git checkout -b new_feature_001
+    git add src/App.js
+    git commit -m "change App.js feature 001"
+    git push origin new_feature_001
+    Criar pull request e aguardar build no travis (a parte do deploy não é realizada, somente o teste)
+    Fazer o merge e aguardar travis fazer o deploy
+
