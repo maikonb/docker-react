@@ -19,9 +19,9 @@ sudo docker ps -a   (descobrindo o id)
 sudo docker exec -it 4d980c98f6e6 npm run test   (executar o teste no container em execucao)
 
 
-
-
-
-
-
-
+// Para testar atraves do docker
+sudo docker build -t test_container  -f Dockerfile.dev .
+// Executa o comando e retorna o resultado, sem aguardar o usuario digitar
+sudo docker run -e CI=true test_container:latest npm run test
+// Se 0, tudo ok. Se != 0, um erro ocorreu.
+echo $?
